@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CadParcial2Bsb\CadParcial2Bsb.csproj">
-      <Project>{037a6d9c-f531-47f0-a248-53e1655c0774}</Project>
+      <Project>{bde626bf-2e75-4409-b3dc-b98d61902bd1}</Project>
       <Name>CadParcial2Bsb</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClnParcial2Bsb\ClnParcial2Bsb.csproj">

@@ -1,4 +1,5 @@
 ﻿using CadParcial2Bsb;
+using CadParcial2Bsb.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace ClnParcial2Bsb
                 existente.director = serie.director;
                 existente.episodios = serie.episodios;
                 existente.fecha_estreno= serie.fecha_estreno;
+                existente.idiomaPrincipal = serie.idiomaPrincipal;
                 return context.SaveChanges();
             }
         }

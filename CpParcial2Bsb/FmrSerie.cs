@@ -1,4 +1,5 @@
 ﻿using CadParcial2Bsb;
+using CadParcial2Bsb.Properties;
 using ClnParcial2Bsb;
 using System;
 using System.Collections.Generic;
@@ -25,12 +26,13 @@ namespace CpParcial2Bsb
             var lista = SerieCln.listarPa(txtBuscar.Text);
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
-            dgvLista.Columns["estado"].HeaderText = "estado";
+            dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["titulo"].HeaderText = "Titulo";
             dgvLista.Columns["sinopsis"].HeaderText = "Sinopsis";
             dgvLista.Columns["director"].HeaderText = "Director";
             dgvLista.Columns["episodios"].HeaderText = "Episodio";
             dgvLista.Columns["fecha_estreno"].HeaderText = "Fecha Estreno";
+            dgvLista.Columns["idiomaPrincipal"].HeaderText = "Idioma";
             btnEditar.Enabled = lista.Count() > 0;
             btnEliminar.Enabled = lista.Count() > 0;
             if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells["titulo"];
@@ -66,6 +68,7 @@ namespace CpParcial2Bsb
             txtSinopsis.Text = serie.sinopsis;
             txtDirector.Text = serie.director;
             nudEpisodios.Value = (int)serie.episodios;
+            cmbIdioma.Text = serie.idiomaPrincipal;
             txtTitulo.Focus();
         }
         
@@ -123,7 +126,7 @@ namespace CpParcial2Bsb
                 serie.director = txtDirector.Text;
                 serie.episodios = int.Parse(nudEpisodios.Value.ToString());
                 serie.fecha_estreno = DateTime.Parse(dtpFechaEstreno.Value.ToString());
-
+                serie.idiomaPrincipal = cmbIdioma.Text;
 
                 if (esNuevo)
                 {

@@ -26,7 +26,8 @@ CREATE TABLE Serie (
     sinopsis VARCHAR(5000),
     director VARCHAR(100),
     episodios INT,
-    fecha_estreno DATE,
+    fechaEstreno DATE,
+    idiomaPrincipal varchar (20),
     estado SMALLINT NOT NULL DEFAULT 1  -- -1: Eliminado, 0: Inactivo, 1: Activo
 );
 GO
@@ -34,7 +35,7 @@ GO
 alter PROC paSerieListar @parametro VARCHAR(50)
 AS
     SELECT *  FROM Serie
-    WHERE titulo LIKE '%'+REPLACE(@parametro, ' ', '%')+'%'
+    WHERE estado<>-1 AND titulo LIKE '%'+REPLACE(@parametro, ' ', '%')+'%'
 
 
 INSERT INTO Serie (titulo, sinopsis, director, episodios, fecha_estreno, estado)
